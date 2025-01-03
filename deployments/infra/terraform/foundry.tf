@@ -5,6 +5,10 @@ resource "azurerm_ai_services" "this" {
   sku_name              = "S0"
   custom_subdomain_name = local.names.ai_services
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   tags = {
     Acceptance = "Test"
   }
