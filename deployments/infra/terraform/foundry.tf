@@ -30,6 +30,10 @@ resource "azapi_resource" "hub" {
     }
     kind = "Hub"
   }
+
+  lifecycle {
+    ignore_changes = [ tags ]
+  }
 }
 
 // Azure AI Project
