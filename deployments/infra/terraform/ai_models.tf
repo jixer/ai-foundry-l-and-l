@@ -10,6 +10,7 @@ resource "azurerm_cognitive_deployment" "gpt_4o_mini" {
 
   sku {
     name = "GlobalStandard"
+capacity = 100
   }
 
   rai_policy_name = "Microsoft.DefaultV2"
