@@ -8,6 +8,7 @@ locals {
     ai_services    = "ais"
     hub            = "aih"
     project        = "aip"
+    ai_search      = "srch"
   }
 
   p = {
@@ -23,6 +24,7 @@ locals {
     ai_services     = "${local.p.foundry}-${local.t.ai_services}"
     hub             = "${local.p.foundry}-${local.t.hub}-001"
     project         = "${local.p.foundry}-${local.t.project}-001"
+    ai_search       = "${local.p.foundry}-${local.t.ai_search}"
 
     hosting_rg = "${local.p.hosting}-${local.t.resource_group}"
   }
