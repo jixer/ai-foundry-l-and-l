@@ -7,7 +7,7 @@ resource "azurerm_search_service" "this" {
   local_authentication_enabled = false
 }
 
-// Permissions
+// User permissions
 resource "azurerm_role_assignment" "asc_admin_contributor" {
   scope                = azurerm_search_service.this.id
   role_definition_name = "Cognitive Services Contributor"
@@ -19,3 +19,18 @@ resource "azurerm_role_assignment" "asc_admin_index_contributor" {
   role_definition_name = "Search Index Data Contributor"
   principal_id         = data.azurerm_client_config.current.object_id
 }
+
+// AI Services Identity permissions
+// ref: https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/on-your-data-configuration#role-assignments
+resource "azurerm_role_assignment" "asc_ais_reader" {
+  scope                = azurerm_search_service.this.id
+  role_definition_name = "Search Index Data Reader"
+  principal_id         = azurerm_ai_services.this.identity[0].principal_id
+}
+
+resource "azurerm_role_assignment" "asc_ais_contributor" {
+  scope                = azurerm_search_service.this.id
+  role_definition_name = "Search Service Contributor"
+  principal_id         = azurerm_ai_services.this.identity[0].principal_id
+}
+
