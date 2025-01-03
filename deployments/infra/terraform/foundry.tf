@@ -78,6 +78,27 @@ resource "azapi_resource" "AIServicesConnection" {
   response_export_values = ["*"]
 }
 
+// AzApi AI Search Connection
+resource "azapi_resource" "AISearchConnection" {
+  type      = "Microsoft.MachineLearningServices/workspaces/connections@2024-04-01-preview"
+  name      = azurerm_search_service.this.name
+  parent_id = azapi_resource.hub.id
+
+  body = {
+    properties = {
+      category      = "CognitiveSearch",
+      target        = "https://${azurerm_search_service.this.name}.search.windows.net",
+      authType      = "AAD",
+      isSharedToAll = true,
+      metadata = {
+        ApiType    = "Azure",
+        ResourceId = azurerm_search_service.this.id
+      }
+    }
+  }
+  response_export_values = ["*"]
+}
+
 
 // Permissions
 resource "azurerm_role_assignment" "ais_all_admin_contributor" {
