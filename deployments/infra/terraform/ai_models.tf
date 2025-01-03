@@ -9,7 +9,7 @@ resource "azurerm_cognitive_deployment" "gpt_4o_mini" {
   }
 
   sku {
-    name = "GlobalStandard"
+    name     = "GlobalStandard"
     capacity = 100
   }
 
@@ -27,7 +27,7 @@ resource "azurerm_cognitive_deployment" "text_embeddings" {
   }
 
   sku {
-    name = "Standard"
+    name     = "Standard"
     capacity = 100
   }
 

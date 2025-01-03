@@ -19,6 +19,6 @@ output "ais_openai_endpoint" {
 }
 
 output "ai_search" {
-  value = azurerm_search_service.this
+  value     = azurerm_search_service.this
   sensitive = true
 }

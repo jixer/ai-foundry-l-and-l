@@ -1,7 +1,7 @@
 resource "azurerm_search_service" "this" {
   name                = local.names.ai_search
-  location              = var.location
-  resource_group_name   = azurerm_resource_group.foundry.name
+  location            = var.location
+  resource_group_name = azurerm_resource_group.foundry.name
   sku                 = "standard"
 
   local_authentication_enabled = false
