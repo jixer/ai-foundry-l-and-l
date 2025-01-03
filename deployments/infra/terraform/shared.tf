@@ -17,3 +17,12 @@ resource "azurerm_key_vault" "default" {
   sku_name                 = "standard"
   purge_protection_enabled = false
 }
+
+
+// AI Services Identity permissions
+// ref: https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/on-your-data-configuration#role-assignments
+resource "azurerm_role_assignment" "storage_ais_contributor" {
+  scope                = azurerm_storage_account.default.id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = azurerm_ai_services.this.identity[0].principal_id
+}

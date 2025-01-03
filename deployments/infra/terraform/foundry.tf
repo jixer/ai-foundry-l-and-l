@@ -5,6 +5,10 @@ resource "azurerm_ai_services" "this" {
   sku_name              = "S0"
   custom_subdomain_name = local.names.ai_services
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   tags = {
     Acceptance = "Test"
   }
@@ -29,6 +33,10 @@ resource "azapi_resource" "hub" {
       keyVault       = azurerm_key_vault.default.id
     }
     kind = "Hub"
+  }
+
+  lifecycle {
+    ignore_changes = [ tags ]
   }
 }
 
@@ -68,6 +76,27 @@ resource "azapi_resource" "AIServicesConnection" {
       metadata = {
         ApiType    = "Azure",
         ResourceId = azurerm_ai_services.this.id
+      }
+    }
+  }
+  response_export_values = ["*"]
+}
+
+// AzApi AI Search Connection
+resource "azapi_resource" "AISearchConnection" {
+  type      = "Microsoft.MachineLearningServices/workspaces/connections@2024-04-01-preview"
+  name      = azurerm_search_service.this.name
+  parent_id = azapi_resource.hub.id
+
+  body = {
+    properties = {
+      category      = "CognitiveSearch",
+      target        = "https://${azurerm_search_service.this.name}.search.windows.net",
+      authType      = "AAD",
+      isSharedToAll = true,
+      metadata = {
+        ApiType    = "Azure",
+        ResourceId = azurerm_search_service.this.id
       }
     }
   }

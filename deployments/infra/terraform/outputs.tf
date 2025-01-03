@@ -17,3 +17,8 @@ output "ais_endpoint" {
 output "ais_openai_endpoint" {
   value = replace(azurerm_ai_services.this.endpoint, "cognitiveservices", "openai")
 }
+
+output "ai_search" {
+  value = azurerm_search_service.this
+  sensitive = true
+}
