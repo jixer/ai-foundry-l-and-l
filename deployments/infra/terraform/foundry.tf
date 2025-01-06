@@ -36,7 +36,7 @@ resource "azapi_resource" "hub" {
   }
 
   lifecycle {
-    ignore_changes = [ tags ]
+    ignore_changes = [tags]
   }
 }
 
