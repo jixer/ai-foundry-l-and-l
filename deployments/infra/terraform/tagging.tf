@@ -2,13 +2,14 @@ locals {
   prefix = format("%s-azaipoc", var.name_prefix)
 
   t = {
-    resource_group = "rg"
-    storage        = "stg"
-    key_vault      = "kv"
-    ai_services    = "ais"
-    hub            = "aih"
-    project        = "aip"
-    ai_search      = "srch"
+    resource_group     = "rg"
+    storage            = "stg"
+    key_vault          = "kv"
+    ai_services        = "ais"
+    hub                = "aih"
+    project            = "aip"
+    ai_search          = "srch"
+    container_registry = "acr"
   }
 
   p = {
@@ -26,7 +27,8 @@ locals {
     project         = "${local.p.foundry}-${local.t.project}-001"
     ai_search       = "${local.p.foundry}-${local.t.ai_search}"
 
-    hosting_rg = "${local.p.hosting}-${local.t.resource_group}"
+    hosting_rg         = "${local.p.hosting}-${local.t.resource_group}"
+    container_registry = replace("${local.p.hosting}-${local.t.container_registry}", "-", "")
   }
 
   common_tags = {

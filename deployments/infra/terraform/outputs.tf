@@ -21,3 +21,7 @@ output "openai_endpoint" {
 output "search_endpoint" {
   value = "https://${azurerm_search_service.this.name}.search.windows.net"
 }
+
+output "container_registry" {
+  value = "${azurerm_container_registry.acr.name}.azurecr.io"
+}
