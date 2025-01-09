@@ -10,6 +10,8 @@ locals {
     project            = "aip"
     ai_search          = "srch"
     container_registry = "acr"
+    app_service_plan   = "asp"
+    app                = "app"
   }
 
   p = {
@@ -29,6 +31,8 @@ locals {
 
     hosting_rg         = "${local.p.hosting}-${local.t.resource_group}"
     container_registry = replace("${local.p.hosting}-${local.t.container_registry}", "-", "")
+    app_service_plan   = "${local.p.hosting}-${local.t.app_service_plan}"
+    promptflow_app     = "${local.p.hosting}-${local.t.app}-pf-001"
   }
 
   common_tags = {
