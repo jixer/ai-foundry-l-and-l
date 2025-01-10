@@ -10,14 +10,10 @@ RUN pip install promptflow && \
     pip install keyrings.alt && \
     pip install gunicorn && \
     pip install uvicorn && \
-    pip install promptflow-vectordb && \
+    pip install promptflow-vectordb==0.2.10 && \
     pip install scikit-learn && \
     pip cache purge
 
 # marshmallow hotfix
 RUN pip install marshmallow==3.23.2 && \
-    pip cache purge
-
-# vectordb JSONDecode hotfix
-RUN pip install --no-deps promptflow-vectordb==0.2.10 && \
     pip cache purge
