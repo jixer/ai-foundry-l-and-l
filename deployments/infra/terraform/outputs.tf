@@ -25,3 +25,7 @@ output "search_endpoint" {
 output "container_registry" {
   value = "${azurerm_container_registry.acr.name}.azurecr.io"
 }
+
+output "promptflow_app" {
+  value = azurerm_linux_web_app.promptflow_app.name
+}

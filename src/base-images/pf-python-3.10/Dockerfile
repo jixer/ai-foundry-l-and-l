@@ -19,5 +19,5 @@ RUN pip install marshmallow==3.23.2 && \
     pip cache purge
 
 # vectordb JSONDecode hotfix
-RUN pip install promptflow-vectordb==0.2.10 && \
+RUN pip install --no-deps promptflow-vectordb==0.2.10 && \
     pip cache purge
