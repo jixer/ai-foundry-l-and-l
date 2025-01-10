@@ -172,3 +172,5 @@ cython_debug/
 
 # Prompt Flow
 .promptflow/
+
+.local/
