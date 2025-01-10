@@ -24,3 +24,9 @@ variable "environment" {
   description = "A name for this environment; defaults to 'poc'"
   default     = "poc"
 }
+
+variable "app_size" {
+  type        = string
+  description = "The tier to use for the app service plan (defaults to B1)"
+  default     = "B1"
+}

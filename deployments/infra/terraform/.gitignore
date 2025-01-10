@@ -1,7 +1,8 @@
 # terraform files
 .terraform/
 .terraform.lock.*
-terraform.tfstate*
+*terraform.tfstate*
+
 
 # secret values files
 env/prod.tfvars

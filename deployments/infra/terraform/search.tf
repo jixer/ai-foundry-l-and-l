@@ -34,3 +34,15 @@ resource "azurerm_role_assignment" "asc_ais_contributor" {
   principal_id         = azurerm_ai_services.this.identity[0].principal_id
 }
 
+// App Service Permissions
+resource "azurerm_role_assignment" "asc_app_contributor" {
+  scope                = azurerm_search_service.this.id
+  role_definition_name = "Search Service Contributor"
+  principal_id         = azurerm_linux_web_app.promptflow_app.identity[0].principal_id
+}
+
+resource "azurerm_role_assignment" "asc_app_reader" {
+  scope                = azurerm_search_service.this.id
+  role_definition_name = "Search Index Data Reader"
+  principal_id         = azurerm_linux_web_app.promptflow_app.identity[0].principal_id
+}
