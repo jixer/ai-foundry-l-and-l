@@ -122,3 +122,16 @@ resource "azurerm_role_assignment" "ais_admin_user" {
   role_definition_name = "Cognitive Services User"
   principal_id         = data.azurerm_client_config.current.object_id
 }
+
+// Permissions for the apps
+resource "azurerm_role_assignment" "app_workspace_connections" {
+  scope                = azapi_resource.project.id
+  role_definition_name = "Azure Machine Learning Workspace Connection Secrets Reader"
+  principal_id         = azurerm_linux_web_app.promptflow_app.identity[0].principal_id
+}
+
+resource "azurerm_role_assignment" "ais_app_user" {
+  scope                = azurerm_ai_services.this.id
+  role_definition_name = "Cognitive Services User"
+  principal_id         = azurerm_linux_web_app.promptflow_app.identity[0].principal_id
+}
