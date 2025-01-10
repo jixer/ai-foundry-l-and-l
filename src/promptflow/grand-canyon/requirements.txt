@@ -1,8 +1,5 @@
 marshmallow == 3.23.2
-langdetect
-promptflow-tools
-promptflow-azure
-promptflow-devkit
+langdetect == 1.0.9
 bs4
 scikit-learn
 markdown
