@@ -16,7 +16,7 @@ resource "azurerm_ai_services" "this" {
 
 // Azure AI Hub
 resource "azapi_resource" "hub" {
-  type      = "Microsoft.MachineLearningServices/workspaces@2024-04-01-preview"
+  type      = "Microsoft.MachineLearningServices/workspaces@2024-10-01"
   name      = local.names.hub
   location  = var.location
   parent_id = azurerm_resource_group.foundry.id
@@ -42,7 +42,7 @@ resource "azapi_resource" "hub" {
 
 // Azure AI Project
 resource "azapi_resource" "project" {
-  type      = "Microsoft.MachineLearningServices/workspaces@2024-04-01-preview"
+  type      = "Microsoft.MachineLearningServices/workspaces@2024-10-01"
   name      = local.names.project
   location  = var.location
   parent_id = azurerm_resource_group.foundry.id
@@ -63,7 +63,7 @@ resource "azapi_resource" "project" {
 
 // AzAPI AI Services Connection
 resource "azapi_resource" "AIServicesConnection" {
-  type      = "Microsoft.MachineLearningServices/workspaces/connections@2024-04-01-preview"
+  type      = "Microsoft.MachineLearningServices/workspaces/connections@2024-10-01"
   name      = local.prefix
   parent_id = azapi_resource.hub.id
 
@@ -84,7 +84,7 @@ resource "azapi_resource" "AIServicesConnection" {
 
 // AzApi AI Search Connection
 resource "azapi_resource" "AISearchConnection" {
-  type      = "Microsoft.MachineLearningServices/workspaces/connections@2024-04-01-preview"
+  type      = "Microsoft.MachineLearningServices/workspaces/connections@2024-10-01"
   name      = azurerm_search_service.this.name
   parent_id = azapi_resource.hub.id
 
