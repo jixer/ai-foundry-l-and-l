@@ -19,6 +19,13 @@ resource "azurerm_key_vault" "default" {
   enable_rbac_authorization = true
 }
 
+// User permissions
+resource "azurerm_role_assignment" "storage_contributor" {
+  scope                = azurerm_storage_account.default.id
+  role_definition_name = "Storage Account Contributor"
+  principal_id         = data.azurerm_client_config.current.object_id
+
+}
 
 // AI Services Identity permissions
 // ref: https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/on-your-data-configuration#role-assignments
