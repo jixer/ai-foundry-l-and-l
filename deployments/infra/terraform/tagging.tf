@@ -12,6 +12,7 @@ locals {
     container_registry = "acr"
     app_service_plan   = "asp"
     app                = "app"
+    ml_online_endpoint = "mle"
   }
 
   p = {
@@ -28,6 +29,7 @@ locals {
     hub             = "${local.p.foundry}-${local.t.hub}-001"
     project         = "${local.p.foundry}-${local.t.project}-001"
     ai_search       = "${local.p.foundry}-${local.t.ai_search}"
+    ml_endpoint     = "${local.p.foundry}-${local.t.ml_online_endpoint}-001"
 
     hosting_rg         = "${local.p.hosting}-${local.t.resource_group}"
     container_registry = replace("${local.p.hosting}-${local.t.container_registry}", "-", "")

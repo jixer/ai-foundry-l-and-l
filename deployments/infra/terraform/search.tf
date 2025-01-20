@@ -46,3 +46,15 @@ resource "azurerm_role_assignment" "asc_app_reader" {
   role_definition_name = "Search Index Data Reader"
   principal_id         = azurerm_linux_web_app.promptflow_app.identity[0].principal_id
 }
+
+resource "azurerm_role_assignment" "ml_app_contributor" {
+  scope                = azurerm_search_service.this.id
+  role_definition_name = "Search Service Contributor"
+  principal_id         = azapi_resource.ml_online_endpoint.identity[0].principal_id
+}
+
+resource "azurerm_role_assignment" "ml_app_reader" {
+  scope                = azurerm_search_service.this.id
+  role_definition_name = "Search Index Data Reader"
+  principal_id         = azapi_resource.ml_online_endpoint.identity[0].principal_id
+}
