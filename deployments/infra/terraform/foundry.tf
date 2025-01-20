@@ -141,3 +141,15 @@ resource "azurerm_role_assignment" "ml_app_user" {
   role_definition_name = "Cognitive Services User"
   principal_id         = azapi_resource.ml_online_endpoint.identity[0].principal_id
 }
+
+resource "azurerm_role_assignment" "ml_endpoint_connections" {
+  scope                = azapi_resource.hub.id
+  role_definition_name = "Azure Machine Learning Workspace Connection Secrets Reader"
+  principal_id         = azapi_resource.ml_online_endpoint.identity[0].principal_id
+}
+
+resource "azurerm_role_assignment" "ml_endpoint_connections_2" {
+  scope                = azapi_resource.project.id
+  role_definition_name = "Azure Machine Learning Workspace Connection Secrets Reader"
+  principal_id         = azapi_resource.ml_online_endpoint.identity[0].principal_id
+}
