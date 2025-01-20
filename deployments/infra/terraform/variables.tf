@@ -30,3 +30,9 @@ variable "app_size" {
   description = "The tier to use for the app service plan (defaults to B1)"
   default     = "B1"
 }
+
+variable "search_tier" {
+  type        = string
+  description = "The tier to use for the AI Search services (defaults to 'free'; other options are 'basic', 'standard')"
+  default     = "free"
+}

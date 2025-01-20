@@ -5,7 +5,5 @@
 
 
 # secret values files
-env/prod.tfvars
-
-# include env
-!env/
+env
+!env/sample.tfvars
