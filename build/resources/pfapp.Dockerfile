@@ -1,4 +1,4 @@
-FROM pf:python-3.10
+FROM pf:azureml
 
 # install the requirements
 COPY ./flow/requirements.txt /flow/requirements.txt
