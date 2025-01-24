@@ -65,13 +65,13 @@ nodes:
   inputs:
     mlindex_content: >
       embeddings:
-        api_base: https://cjam3-azaipoc-ai-ais.openai.azure.com
+        api_base: https://cm6-azaipoc-ai-ais.openai.azure.com
         api_type: azure_ad
         api_version: 2023-07-01-preview
         batch_size: '16'
         connection:
           id: >-
-            /subscriptions/dd32f726-d09b-4093-add0-56d8cbdb4ed0/resourceGroups/cjam3-azaipoc-ai-rg/providers/Microsoft.MachineLearningServices/workspaces/cjam3-azaipoc-ai-aip-001/connections/cjam3-azaipoc_aoai
+            /subscriptions/dd32f726-d09b-4093-add0-56d8cbdb4ed0/resourceGroups/cm6-azaipoc-ai-rg/providers/Microsoft.MachineLearningServices/workspaces/cm6-azaipoc-ai-aip-001/connections/cm6-azaipoc_aoai
         connection_type: workspace_connection
         deployment: text-embedding-ada-002
         dimension: 1536
@@ -83,9 +83,9 @@ nodes:
         api_version: 2024-05-01-preview
         connection:
           id: >-
-            /subscriptions/dd32f726-d09b-4093-add0-56d8cbdb4ed0/resourceGroups/cjam3-azaipoc-ai-rg/providers/Microsoft.MachineLearningServices/workspaces/cjam3-azaipoc-ai-aip-001/connections/cjam3-azaipoc-ai-srch
+            /subscriptions/dd32f726-d09b-4093-add0-56d8cbdb4ed0/resourceGroups/cm6-azaipoc-ai-rg/providers/Microsoft.MachineLearningServices/workspaces/cm6-azaipoc-ai-aip-001/connections/cm6-azaipoc-ai-srch
         connection_type: workspace_connection
-        endpoint: https://cjam3-azaipoc-ai-srch.search.windows.net
+        endpoint: https://cm6-azaipoc-ai-srch.search.windows.net
         engine: azure-sdk
         field_mapping:
           content: content
