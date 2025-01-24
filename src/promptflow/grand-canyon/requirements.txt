@@ -1,5 +1,0 @@
-langdetect == 1.0.9
-bs4
-scikit-learn
-markdown
-promptflow-vectordb[azure] == 0.2.9
